@@ -23,7 +23,7 @@ public class GameMain extends JPanel {
     private JLabel statusBar;    // for displaying status message
 
     /** Constructor to setup the UI and game components */
-    public GameMain() {
+    public GameMain() { tes
 
         // This JPanel fires MouseEvent
         super.addMouseListener(new MouseAdapter() {

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 /**
  * The Board class models the ROWS-by-COLS game board.
@@ -13,6 +14,7 @@ public class Board {
     public static final int GRID_WIDHT_HALF = GRID_WIDTH / 2; // Grid-line's half-width
     public static final Color COLOR_GRID = Color.LIGHT_GRAY;  // grid lines
     public static final int Y_OFFSET = 1;  // Fine tune for better display
+    private Image backgroundImage;
 
     // Define properties (package-visible)
     /** Composes of 2D array of ROWS-by-COLS Cell instances */
@@ -21,6 +23,7 @@ public class Board {
     /** Constructor to initialize the game board */
     public Board() {
         initGame();
+        loadImage();
     }
 
     /** Initialize the game objects (run once) */
@@ -84,6 +87,8 @@ public class Board {
 
     /** Paint itself on the graphics canvas, given the Graphics context */
     public void paint(Graphics g) {
+        //Background
+        g.drawImage(backgroundImage, 0, 0, 360, 360, null);
         // Draw the grid-lines
         g.setColor(COLOR_GRID);
         for (int row = 1; row < ROWS; ++row) {
@@ -103,5 +108,9 @@ public class Board {
                 cells[row][col].paint(g);  // ask the cell to paint itself
             }
         }
+    }
+    public void loadImage(){
+        ImageIcon icon = new ImageIcon("src/background.png");
+        backgroundImage = icon.getImage();
     }
 }

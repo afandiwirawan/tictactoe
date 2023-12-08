@@ -9,7 +9,9 @@ public class Cell {
     public static final int PADDING = SIZE / 5;
     public static final int SEED_SIZE = SIZE - PADDING * 2;
     public static final int SEED_STROKE_WIDTH = 8; // pen's stroke width
-
+    private static final ImageIcon CROSS_ICON = new ImageIcon("src/cow.png");
+    private static final ImageIcon NOUGHT_ICON = new ImageIcon("src/owl.png");
+    
     // Define properties (package-visible)
     /** Content of this cell (Seed.EMPTY, Seed.CROSS, or Seed.NOUGHT) */
     Seed content;
@@ -38,14 +40,9 @@ public class Cell {
         int x1 = col * SIZE + PADDING;
         int y1 = row * SIZE + PADDING;
         if (content == Seed.CROSS) {
-            g2d.setColor(GameMain.COLOR_CROSS);  // draw a 2-line cross
-            int x2 = (col + 1) * SIZE - PADDING;
-            int y2 = (row + 1) * SIZE - PADDING;
-            g2d.drawLine(x1, y1, x2, y2);
-            g2d.drawLine(x2, y1, x1, y2);
-        } else if (content == Seed.NOUGHT) {  // draw a circle
-            g2d.setColor(GameMain.COLOR_NOUGHT);
-            g2d.drawOval(x1, y1, SEED_SIZE, SEED_SIZE);
+            g.drawImage(CROSS_ICON.getImage(), x1, y1, SIZE - 2 * PADDING, SIZE - 2 * PADDING, null);
+        } else if (content == Seed.NOUGHT) {
+            g.drawImage(NOUGHT_ICON.getImage(), x1, y1, SIZE - 2 * PADDING, SIZE - 2 * PADDING, null);
         }
     }
 }

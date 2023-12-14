@@ -2,7 +2,7 @@
  * ES234317-Algorithm and Data Structures
  * Semester Ganjil, 2023/2024
  * Group Capstone Project
- * Group #1
+ * Group #10
  * 1 - 5026221009 - Indriyani Alif Safitri
  * 2 - 5026221116 - Athaalla Rayya Genaro Iswandoko
  * 3 - 5026221127 - Mochammad Afandi Wirawan
@@ -35,8 +35,14 @@ public class GameMain extends JPanel {
     private Seed currentPlayer;  // the current player
     private JLabel statusBar;    // for displaying status message
 
+    String player1Name;
+    String player2Name;
+
     /** Constructor to setup the UI and game components */
     public GameMain() {
+
+        player1Name = JOptionPane.showInputDialog(this, "Enter your name:");
+        player2Name = JOptionPane.showInputDialog(this, "Enter your name:");
 
         // This JPanel fires MouseEvent
         super.addMouseListener(new MouseAdapter() {
@@ -111,16 +117,16 @@ public class GameMain extends JPanel {
         // Print status-bar message
         if (currentState == State.PLAYING) {
             statusBar.setForeground(Color.BLACK);
-            statusBar.setText((currentPlayer == Seed.CROSS) ? "Cow's Turn" : "Owl's Turn");
+            statusBar.setText((currentPlayer == Seed.CROSS) ? player1Name + "'s Turn" : player2Name + "'s Turn");
         } else if (currentState == State.DRAW) {
             statusBar.setForeground(Color.RED);
             statusBar.setText("It's a Draw! Click to play again.");
         } else if (currentState == State.CROSS_WON) {
-            statusBar.setForeground(Color.RED);
-            statusBar.setText("'Cow' Won! Click to play again.");
+            statusBar.setForeground(Color.blue);
+            statusBar.setText(player1Name + " Won! Click to play again.");
         } else if (currentState == State.NOUGHT_WON) {
-            statusBar.setForeground(Color.RED);
-            statusBar.setText("'Owl' Won! Click to play again.");
+            statusBar.setForeground(Color.GREEN);
+            statusBar.setText(player2Name + " Won! Click to play again.");
         }
     }
 

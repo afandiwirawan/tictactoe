@@ -43,6 +43,12 @@ public class GameMain extends JPanel {
 
         player1Name = JOptionPane.showInputDialog(this, "Enter your name:");
         player2Name = JOptionPane.showInputDialog(this, "Enter your name:");
+        if (player1Name == null || player1Name.trim().isEmpty()) {
+            player1Name = "Cow";
+        }
+        if (player2Name == null || player2Name.trim().isEmpty()) {
+            player2Name = "Owl";
+        }
 
         // This JPanel fires MouseEvent
         super.addMouseListener(new MouseAdapter() {

@@ -45,9 +45,9 @@ public class Cell {
         g2d.setStroke(new BasicStroke(8.0F, 1, 1));
         int x1 = this.col * 120 + 24;
         int y1 = this.row * 120 + 24;
-        if (this.content == Seed.CROSS) {
+        if (this.content == Seed.PLAYER1) {
             g.drawImage(CROSS_ICON.getImage(), x1, y1, 72, 72, (ImageObserver)null);
-        } else if (this.content == Seed.NOUGHT) {
+        } else if (this.content == Seed.PLAYER2) {
             g.drawImage(NOUGHT_ICON.getImage(), x1, y1, 72, 72, (ImageObserver)null);
         }
 

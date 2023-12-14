@@ -66,7 +66,7 @@ public class GameMain extends JPanel {
                         // Update cells[][] and return the new game state after the move
                         currentState = board.stepGame(currentPlayer, row, col);
                         // Switch player
-                        currentPlayer = (currentPlayer == Seed.CROSS) ? Seed.NOUGHT : Seed.CROSS;
+                        currentPlayer = (currentPlayer == Seed.PLAYER1) ? Seed.PLAYER2 : Seed.PLAYER1;
                     }
                 } else {        // game over
                     newGame();  // restart the game
@@ -108,7 +108,7 @@ public class GameMain extends JPanel {
                 board.cells[row][col].content = Seed.NO_SEED; // all cells empty
             }
         }
-        currentPlayer = Seed.CROSS;    // cross plays first
+        currentPlayer = Seed.PLAYER1;    // player1 plays first
         currentState = State.PLAYING;  // ready to play
     }
 
@@ -123,7 +123,7 @@ public class GameMain extends JPanel {
         // Print status-bar message
         if (currentState == State.PLAYING) {
             statusBar.setForeground(Color.BLACK);
-            statusBar.setText((currentPlayer == Seed.CROSS) ? player1Name + "'s Turn" : player2Name + "'s Turn");
+            statusBar.setText((currentPlayer == Seed.PLAYER1) ? player1Name + "'s Turn" : player2Name + "'s Turn");
         } else if (currentState == State.DRAW) {
             statusBar.setForeground(Color.RED);
             statusBar.setText("It's a Draw! Click to play again.");

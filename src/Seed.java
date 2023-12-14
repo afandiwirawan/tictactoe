@@ -16,5 +16,5 @@
  *  however, not supported.
  */
 public enum Seed {   // to save as "Seed.java"
-    CROSS, NOUGHT, NO_SEED
+    PLAYER1, PLAYER2, NO_SEED
 }

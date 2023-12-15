@@ -127,10 +127,10 @@ public class GameMain extends JPanel {
         } else if (currentState == State.DRAW) {
             statusBar.setForeground(Color.RED);
             statusBar.setText("It's a Draw! Click to play again.");
-        } else if (currentState == State.CROSS_WON) {
+        } else if (currentState == State.PLAYER1_WON) {
             statusBar.setForeground(Color.blue);
             statusBar.setText(player1Name + " Won! Click to play again.");
-        } else if (currentState == State.NOUGHT_WON) {
+        } else if (currentState == State.PLAYER2_WON) {
             statusBar.setForeground(Color.GREEN);
             statusBar.setText(player2Name + " Won! Click to play again.");
         }

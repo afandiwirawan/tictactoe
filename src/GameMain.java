@@ -20,7 +20,7 @@ public class GameMain extends JPanel {
 
 
     private static final long serialVersionUID = 1L; // to prevent serializable warning
-
+    private JButton aboutButton;
     // Define named constants for the drawing graphics
     public static final String TITLE = "Tic Tac Toe";
     public static final Color COLOR_BG = Color.BLUE;
@@ -94,7 +94,35 @@ public class GameMain extends JPanel {
         // Set up Game
         initGame();
         newGame();
+
+        // Setup the "About" button
+        aboutButton = new JButton("About");
+        aboutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showAboutDialog();
+            }
+        });
+
+        // Add the "About" button to the panel
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(aboutButton);
+        super.add(buttonPanel, BorderLayout.PAGE_START); // Add above the status bar
     }
+
+    // Method to show the "About" dialog
+    private void showAboutDialog() {
+        String aboutMessage = "Tic Tac Toe Game\n"
+                + "Group #11, Semester Ganjil 2023/2024\n"
+                + "Developed by:\n"
+                + "1 - Indriyani Alif Safitri\n"
+                + "2 - Athaalla Rayya Genaro Iswandoko\n"
+                + "3 - Mochammad Afandi Wirawan\n"
+                + "4 - Hajid Alauddin Ramadhan";
+
+        JOptionPane.showMessageDialog(this, aboutMessage, "About", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
     /** Initialize the game (run once) */
     public void initGame() {
